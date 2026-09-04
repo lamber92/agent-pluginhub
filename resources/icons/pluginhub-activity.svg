@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
+  <!-- Isometric Open Container (箱体与开口结构) -->
+  <!-- Base box walls -->
+  <path
+    d="M3.5 11.5 L12 16.2 L20.5 11.5 L20.5 17.2 L12 21.8 L3.5 17.2 Z"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  
+  <!-- Center vertical seam -->
+  <path
+    d="M12 16.2 L12 21.8"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Open box top flaps (向外展开的箱盖) -->
+  <path
+    d="M3.5 11.5 L1.8 7.8 L8.2 9.5 M20.5 11.5 L22.2 7.8 L15.8 9.5"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  
+  <!-- Back inner edge -->
+  <path
+    d="M8.2 9.5 L12 7.6 L15.8 9.5"
+    stroke-width="1.3"
+    stroke-dasharray="1.5 1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.6"
+  />
+
+  <!-- Floating Core: Emerging AI Capability & Plugin Spark (从箱中升腾的技能星芒) -->
+  <path
+    d="M12 1.5 C12 3.8 13.2 5.5 16 5.5 C13.2 5.5 12 7.2 12 9.5 C12 7.2 10.8 5.5 8 5.5 C10.8 5.5 12 3.8 12 1.5 Z"
+    fill="currentColor"
+    stroke="none"
+  />
+
+  <!-- Floating Satellite Sparks (伴随升起的能力微光) -->
+  <circle cx="5.5" cy="4" r="0.9" fill="currentColor" stroke="none" />
+  <circle cx="18.5" cy="4" r="0.9" fill="currentColor" stroke="none" />
+</svg>

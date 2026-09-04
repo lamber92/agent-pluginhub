@@ -1,0 +1,144 @@
+{
+  "name": "agent-pluginhub",
+  "displayName": "Agent-PluginHub",
+  "description": "Universal Plugin & Skill Manager on VS Code-based IDEs for AI Coding Agents (Google Antigravity, OpenCode, Codex & more)",
+  "version": "0.1.0",
+  "publisher": "agent-pluginhub-manager",
+  "icon": "resources/icons/pluginhub-activity.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lamber92/agent-pluginhub"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "agent-pluginhub",
+    "pluginhub",
+    "plugins",
+    "skills",
+    "antigravity",
+    "codex",
+    "gemini",
+    "mcp",
+    "marketplace",
+    "agents"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:agent-pluginhub-view",
+    "onCommand:pluginhub.open",
+    "onCommand:pluginhub.refresh"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "agent-pluginhub-container",
+          "title": "Agent-PluginHub",
+          "icon": "resources/icons/pluginhub-activity.svg"
+        }
+      ]
+    },
+    "views": {
+      "agent-pluginhub-container": [
+        {
+          "type": "webview",
+          "id": "agent-pluginhub-view",
+          "name": "AI Plugin & Skill Manager"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pluginhub.open",
+        "title": "打开全屏插件市场",
+        "category": "Agent-PluginHub",
+        "icon": "$(layout-sidebar-right)"
+      },
+      {
+        "command": "pluginhub.refresh",
+        "title": "刷新已安装与插件市场",
+        "category": "Agent-PluginHub",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "pluginhub.open",
+          "when": "view == agent-pluginhub-view",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Agent-PluginHub",
+      "properties": {
+        "pluginhub.mirrorAcceleration": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable CDN and mirror acceleration for faster asset downloads."
+        },
+        "pluginhub.proxyUrl": {
+          "type": "string",
+          "default": "",
+          "description": "HTTP / HTTPS proxy URL for network requests."
+        },
+        "pluginhub.defaultInstallScope": {
+          "type": "string",
+          "enum": [
+            "ask",
+            "workspace",
+            "agent",
+            "global"
+          ],
+          "default": "ask",
+          "description": "Default scope when installing plugins."
+        },
+        "pluginhub.targetAgentRuntime": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "antigravity",
+            "opencode",
+            "codex"
+          ],
+          "default": "auto",
+          "description": "Target AI Agent Runtime environment (Auto-Detect, Google Antigravity, OpenCode, or OpenAI Codex)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build:ui": "cd webview-ui && npm run build",
+    "build:ext": "node esbuild.config.js --production",
+    "build": "npm run build:ui && npm run build:ext",
+    "package": "npm run build && npx @vscode/vsce package --no-dependencies",
+    "watch:ui": "cd webview-ui && npm run dev",
+    "watch:ext": "node esbuild.config.js --watch",
+    "compile": "node esbuild.config.js",
+    "typecheck": "tsc --noEmit && npm --prefix webview-ui run typecheck",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "adm-zip": "^0.6.0",
+    "https-proxy-agent": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.5",
+    "@types/iarna__toml": "^2.0.5",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.3.3"
+  }
+}
