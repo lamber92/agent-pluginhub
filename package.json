@@ -2,7 +2,7 @@
   "name": "agent-pluginhub",
   "displayName": "Agent-PluginHub",
   "description": "Universal Plugin & Skill Manager on VS Code-based IDEs for AI Coding Agents (Google Antigravity, OpenCode, Codex & more)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "agent-pluginhub-manager",
   "icon": "resources/icons/pluginhub-activity.png",
   "repository": {
